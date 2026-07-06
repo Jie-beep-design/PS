@@ -1,11 +1,13 @@
 {
   "functions": {
+    "api/**/*.php": {
+      "runtime": "vercel-php@8.2.12"
+    },
     "*.php": {
       "runtime": "vercel-php@8.2.12"
     }
   },
   "routes": [
-    { "handle": "filesystem" },
-    { "src": "/(.*)", "dest": "/rumah_playstation.php" }
+    { "src": "/(.*)", "dest": "/index.php" }
   ]
-}
+]
