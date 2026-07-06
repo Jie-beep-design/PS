@@ -1,0 +1,937 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&display=swap');
+
+:root {
+  --bg-dark: #0f172a;
+  --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+  --neon-blue: #00f3ff;
+  --neon-purple: #bc13fe;
+  --neon-green: #00ff87;
+  --neon-red: #ff0055;
+  --neon-yellow: #ffea00;
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --text-main: #e2e8f0;
+  --text-muted: #94a3b8;
+}
+
+body {
+  font-family: 'Rajdhani', sans-serif;
+  background: var(--bg-gradient);
+  background-attachment: fixed;
+  color: var(--text-main);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.text-muted {
+  color: var(--text-muted) !important;
+}
+
+/* Glassmorphism */
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+  border-color: rgba(0, 243, 255, 0.3);
+  box-shadow: 0 8px 32px 0 rgba(0, 243, 255, 0.15);
+}
+
+.glass-navbar {
+  background: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.glass-sidebar {
+  background: rgba(15, 23, 42, 0.9);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-right: 1px solid var(--glass-border);
+  min-height: 100vh;
+}
+
+/* Neon Text */
+.neon-text-blue {
+  color: var(--neon-blue);
+  text-shadow: 0 0 8px rgba(0, 243, 255, 0.5);
+}
+
+.neon-text-purple {
+  color: var(--neon-purple);
+  text-shadow: 0 0 8px rgba(188, 19, 254, 0.5);
+}
+
+/* Form Controls */
+.form-control-glass {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.form-control-glass:focus {
+  background: rgba(0, 0, 0, 0.4);
+  border-color: var(--neon-blue);
+  box-shadow: 0 0 10px rgba(0, 243, 255, 0.3);
+  color: #fff;
+}
+
+.form-control-glass::placeholder {
+  color: var(--text-muted);
+}
+
+.input-group-text-glass {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-right: none;
+  color: var(--neon-blue);
+}
+
+/* Buttons */
+.btn-neon {
+  background: transparent;
+  color: var(--neon-blue);
+  border: 1px solid var(--neon-blue);
+  border-radius: 8px;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-neon:hover {
+  background: var(--neon-blue);
+  color: #000;
+  box-shadow: 0 0 15px var(--neon-blue);
+}
+
+.btn-neon-purple {
+  background: transparent;
+  color: var(--neon-purple);
+  border: 1px solid var(--neon-purple);
+  border-radius: 8px;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+}
+
+.btn-neon-purple:hover {
+  background: var(--neon-purple);
+  color: #fff;
+  box-shadow: 0 0 15px var(--neon-purple);
+}
+
+.btn-neon-green {
+  background: transparent;
+  color: var(--neon-green);
+  border: 1px solid var(--neon-green);
+}
+.btn-neon-green:hover {
+  background: var(--neon-green);
+  color: #000;
+  box-shadow: 0 0 15px var(--neon-green);
+}
+
+.btn-neon-red {
+  background: transparent;
+  color: var(--neon-red);
+  border: 1px solid var(--neon-red);
+}
+.btn-neon-red:hover {
+  background: var(--neon-red);
+  color: #fff;
+  box-shadow: 0 0 15px var(--neon-red);
+}
+
+.btn-neon-yellow {
+  background: transparent;
+  color: var(--neon-yellow);
+  border: 1px solid var(--neon-yellow);
+}
+.btn-neon-yellow:hover {
+  background: var(--neon-yellow);
+  color: #000;
+  box-shadow: 0 0 15px var(--neon-yellow);
+}
+
+/* Anti-gravity Animations */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes pulse-glow {
+  0% { box-shadow: 0 0 10px rgba(0, 243, 255, 0.2); }
+  50% { box-shadow: 0 0 20px rgba(0, 243, 255, 0.6); }
+  100% { box-shadow: 0 0 10px rgba(0, 243, 255, 0.2); }
+}
+
+.float-hover {
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.float-hover:hover {
+  transform: translateY(-8px);
+}
+
+.float-idle {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Badges */
+.badge-neon-green {
+  background: rgba(0, 255, 135, 0.1);
+  color: var(--neon-green);
+  border: 1px solid var(--neon-green);
+  box-shadow: 0 0 8px rgba(0, 255, 135, 0.3);
+}
+
+.badge-neon-red {
+  background: rgba(255, 0, 85, 0.1);
+  color: var(--neon-red);
+  border: 1px solid var(--neon-red);
+  box-shadow: 0 0 8px rgba(255, 0, 85, 0.3);
+}
+
+.badge-neon-yellow {
+  background: rgba(255, 234, 0, 0.1);
+  color: var(--neon-yellow);
+  border: 1px solid var(--neon-yellow);
+  box-shadow: 0 0 8px rgba(255, 234, 0, 0.3);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-dark);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--neon-purple);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--neon-blue);
+}
+
+/* Sidebar Links */
+.sidebar-link {
+  color: var(--text-main);
+  text-decoration: none;
+  padding: 12px 20px;
+  display: block;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  margin-bottom: 8px;
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+
+.sidebar-link:hover, .sidebar-link.active {
+  background: rgba(0, 243, 255, 0.1);
+  color: var(--neon-blue);
+  box-shadow: inset 4px 0 0 var(--neon-blue);
+}
+
+.sidebar-link i {
+  width: 24px;
+  margin-right: 10px;
+  text-align: center;
+}
+
+/* Dynamic Hover Preview */
+.menu-preview-card {
+  position: fixed;
+  pointer-events: none; /* Let mouse events pass through */
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--neon-blue);
+  border-radius: 12px;
+  padding: 15px 20px;
+  width: 260px;
+  z-index: 9999;
+  box-shadow: 0 10px 30px rgba(0, 243, 255, 0.2);
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  color: #fff;
+}
+
+.menu-preview-card.show {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.menu-preview-card h6 {
+  color: var(--neon-blue);
+  margin-bottom: 8px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.menu-preview-card p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Modern Animated Notification */
+.alert-animated {
+  animation: slideInDown 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+@keyframes slideInDown {
+  0% { opacity: 0; transform: translateY(-30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* PS Showcase Container General */
+.ps-showcase-container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Premium Icon Styles */
+.ps-icon-showcase {
+  position: absolute;
+  font-size: 4rem;
+  opacity: 0;
+  color: #fff;
+  text-shadow: 0 0 15px var(--neon-blue), 0 0 30px var(--neon-purple);
+}
+
+.ps-showcase-container.large-icon .ps-icon-showcase {
+  font-size: 6rem;
+}
+
+/* Warna Kontras Berbeda untuk tiap Icon */
+.ps-icon-showcase.icon-1 { text-shadow: 0 0 15px #00f3ff, 0 0 30px #00f3ff; color: #e0ffff; }
+.ps-icon-showcase.icon-2 { text-shadow: 0 0 15px #b026ff, 0 0 30px #b026ff; color: #f0e6ff; }
+.ps-icon-showcase.icon-3 { text-shadow: 0 0 15px #00ff88, 0 0 30px #00ff88; color: #e6ffe6; }
+
+/* Fade In/Out Animation */
+.ps-showcase-fade i {
+  transform: scale(0.8) translateY(20px);
+  animation: fadeRotateAnim 9s infinite cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.ps-showcase-fade i:nth-child(1) { animation-delay: 0s; }
+.ps-showcase-fade i:nth-child(2) { animation-delay: 3s; }
+.ps-showcase-fade i:nth-child(3) { animation-delay: 6s; }
+
+@keyframes fadeRotateAnim {
+  0%, 100% { opacity: 0; transform: scale(0.8) translateY(20px); }
+  10% { opacity: 1; transform: scale(1) translateY(0); }
+  25% { opacity: 1; transform: scale(1.05) translateY(-5px); }
+  33% { opacity: 0; transform: scale(0.9) translateY(-20px); }
+}
+
+/* Slide Animation (Carousel style) */
+.ps-showcase-slide i {
+  transform: translateX(150%) rotate(15deg);
+  animation: slideRotateAnim 9s infinite cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.ps-showcase-slide i:nth-child(1) { animation-delay: 0s; }
+.ps-showcase-slide i:nth-child(2) { animation-delay: 3s; }
+.ps-showcase-slide i:nth-child(3) { animation-delay: 6s; }
+
+@keyframes slideRotateAnim {
+  0%, 100% { opacity: 0; transform: translateX(150%) rotate(15deg); }
+  10% { opacity: 1; transform: translateX(0) rotate(0deg); }
+  25% { opacity: 1; transform: translateX(-15px) rotate(-5deg); }
+  33% { opacity: 0; transform: translateX(-150%) rotate(-15deg); }
+}
+
+/* Dashboard Borders */
+.dashboard-showcase-box {
+  border: 2px solid var(--neon-blue);
+  border-radius: 20px;
+  background: rgba(0, 243, 255, 0.05);
+  box-shadow: inset 0 0 20px rgba(0, 243, 255, 0.1), 0 0 15px rgba(0, 243, 255, 0.2);
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* COMIC LIGHT MODE (2D, Hitam Putih, Kaku) */
+body.comic-mode {
+  --bg-dark: #ffffff;
+  --bg-gradient: #ffffff;
+  --neon-blue: #000000;
+  --neon-purple: #000000;
+  --neon-green: #000000;
+  --neon-red: #000000;
+  --neon-yellow: #000000;
+  --glass-bg: #ffffff;
+  --glass-border: #000000;
+  --text-main: #000000;
+  --text-muted: #495057;
+}
+
+body.comic-mode .glass-card, 
+body.comic-mode .glass-navbar, 
+body.comic-mode .glass-sidebar,
+body.comic-mode .menu-preview-card {
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border: 2px solid #000;
+  box-shadow: 6px 6px 0px #000 !important;
+  border-radius: 4px; /* Lebih kaku */
+  background: #ffffff;
+}
+
+body.comic-mode .glass-card:hover {
+  border-color: #000;
+  box-shadow: 8px 8px 0px #000 !important;
+  transform: translate(-2px, -2px);
+}
+
+body.comic-mode .neon-text-blue,
+body.comic-mode .neon-text-purple,
+body.comic-mode .neon-text-green,
+body.comic-mode .neon-text-red,
+body.comic-mode .neon-text-yellow,
+body.comic-mode .text-white,
+body.comic-mode .text-light,
+body.comic-mode .text-muted,
+body.comic-mode .text-gray-400,
+body.comic-mode h1, body.comic-mode h2, body.comic-mode h3, body.comic-mode h4, body.comic-mode h5, body.comic-mode h6 {
+  text-shadow: 2px 2px 0px rgba(0,0,0,0.15) !important;
+  font-weight: 800;
+  color: #000 !important;
+  letter-spacing: 1px;
+}
+
+body.comic-mode .btn-neon,
+body.comic-mode .btn-neon-purple,
+body.comic-mode .btn-neon-green,
+body.comic-mode .btn-neon-red,
+body.comic-mode .btn-neon-yellow {
+  background: #fff;
+  color: #000 !important;
+  border: 2px solid #000 !important;
+  box-shadow: 4px 4px 0px #000 !important;
+  border-radius: 4px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+body.comic-mode .btn-neon:hover,
+body.comic-mode .btn-neon-purple:hover,
+body.comic-mode .btn-neon-green:hover,
+body.comic-mode .btn-neon-red:hover,
+body.comic-mode .btn-neon-yellow:hover {
+  background: #f0f0f0;
+  color: #000 !important;
+  box-shadow: 6px 6px 0px #000 !important;
+  transform: translate(-2px, -2px);
+}
+
+body.comic-mode .form-control-glass,
+body.comic-mode .input-group-text-glass {
+  background: #fff;
+  border: 2px solid #000;
+  color: #000;
+  border-radius: 4px;
+  box-shadow: 3px 3px 0px #000;
+  font-weight: bold;
+}
+
+body.comic-mode .form-control-glass:focus {
+  background: #fff;
+  border-color: #000;
+  box-shadow: 5px 5px 0px #000;
+  color: #000;
+}
+
+body.comic-mode .form-control-glass::placeholder {
+  color: #666;
+  font-weight: normal;
+}
+
+body.comic-mode .sidebar-link {
+  color: #000;
+  border: 2px solid transparent;
+  font-weight: 700;
+  border-radius: 4px;
+}
+
+body.comic-mode .sidebar-link:hover, 
+body.comic-mode .sidebar-link.active {
+  background: #fff;
+  border: 2px solid #000;
+  box-shadow: 4px 4px 0px #000;
+  color: #000;
+  transform: translate(-2px, -2px);
+}
+
+body.comic-mode .badge, 
+body.comic-mode .badge-neon-green, 
+body.comic-mode .badge-neon-red, 
+body.comic-mode .badge-neon-yellow {
+  background: #fff !important;
+  color: #000 !important;
+  border: 2px solid #000 !important;
+  box-shadow: 2px 2px 0px #000 !important;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+body.comic-mode .btn-outline-light {
+  color: #000 !important;
+  border: 2px solid #000 !important;
+  background: #fff !important;
+  box-shadow: 2px 2px 0px #000 !important;
+}
+
+body.comic-mode .btn-outline-light:hover {
+  background: #f0f0f0 !important;
+  color: #000 !important;
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0px #000 !important;
+}
+
+body.comic-mode .table {
+  color: #000 !important;
+  border: 4px solid #000 !important;
+  box-shadow: 12px 12px 0px #000 !important;
+  background-color: #fff !important;
+  margin-bottom: 20px !important;
+}
+body.comic-mode .table th, body.comic-mode .table td {
+  border: 2px solid #000 !important;
+  color: #000 !important;
+  background-color: #fff !important;
+}
+body.comic-mode .table thead th {
+  border-bottom: 4px solid #000 !important;
+  background-color: #f0f0f0 !important;
+  font-weight: 900 !important;
+  text-transform: uppercase;
+}
+
+/* COMIC MODE FORM INPUTS */
+body.comic-mode .form-control,
+body.comic-mode .form-select,
+body.comic-mode input[type="text"],
+body.comic-mode input[type="password"],
+body.comic-mode input[type="email"],
+body.comic-mode input[type="number"],
+body.comic-mode input[type="date"],
+body.comic-mode input[type="time"],
+body.comic-mode textarea {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  border: 3px solid #000 !important;
+  box-shadow: 4px 4px 0px #000 !important;
+  border-radius: 0px !important; /* Bentuk kaku */
+  font-weight: bold !important;
+}
+
+body.comic-mode .form-control:focus,
+body.comic-mode .form-select:focus,
+body.comic-mode input:focus,
+body.comic-mode textarea:focus {
+  outline: none !important;
+  border-color: #000 !important;
+  box-shadow: 6px 6px 0px #000 !important;
+  background-color: #ffffcc !important; /* Efek highlight kuning pucat saat diketik */
+}
+
+body.comic-mode ::placeholder {
+  color: #555 !important;
+  opacity: 1 !important;
+}
+
+body.comic-mode .dashboard-showcase-box {
+  border: 2px solid #000;
+  background: #fff;
+  box-shadow: 6px 6px 0px #000;
+  border-radius: 4px;
+}
+
+body.comic-mode .ps-icon-showcase,
+body.comic-mode .ps-showcase-fade i,
+body.comic-mode .ps-showcase-slide i {
+  color: #fff !important;
+  -webkit-text-stroke: 3px #000 !important;
+  text-shadow: 6px 6px 0px #000 !important;
+}
+
+/* COMIC MODE EXTENSIONS (Hard Shadows & Borders) */
+body.comic-mode .glass-card, 
+body.comic-mode .glass-navbar, 
+body.comic-mode .glass-sidebar,
+body.comic-mode .menu-preview-card,
+body.comic-mode .dashboard-showcase-box,
+body.comic-mode .stat-card {
+  background-color: #ffffff !important;
+  border: 4px solid #000 !important;
+  box-shadow: 8px 8px 0px #000 !important;
+}
+
+body.comic-mode .glass-card:hover,
+body.comic-mode .stat-card:hover {
+  box-shadow: 12px 12px 0px #000 !important;
+  transform: translate(-4px, -4px) !important;
+}
+/* COMIC MODE INFO BOXES */
+body.comic-mode .info-box-sewa {
+  background-color: #ffffff !important;
+  border: 4px solid #000 !important;
+  box-shadow: 8px 8px 0px #000 !important;
+  color: #000 !important;
+  border-radius: 0px !important;
+}
+body.comic-mode .info-box-sewa span.text-muted,
+body.comic-mode .info-box-sewa p.text-muted {
+  color: #333 !important;
+  font-weight: bold;
+}
+body.comic-mode .info-box-sewa *,
+body.comic-mode .stat-card * {
+  text-shadow: none !important;
+}
+
+body.comic-mode .btn-neon,
+body.comic-mode .btn-neon-purple,
+body.comic-mode .btn-neon-green,
+body.comic-mode .btn-neon-red,
+body.comic-mode .btn-neon-yellow,
+body.comic-mode .btn-outline-light,
+body.comic-mode .btn {
+  background-color: #fff !important;
+  border: 3px solid #000 !important;
+  box-shadow: 6px 6px 0px #000 !important;
+  color: #000 !important;
+  font-weight: 800 !important;
+}
+
+/* Shared Hover Effects (Shadow & Transform) */
+body.comic-mode .btn-neon:hover,
+body.comic-mode .btn-neon-purple:hover,
+body.comic-mode .btn-neon-green:hover,
+body.comic-mode .btn-neon-red:hover,
+body.comic-mode .btn-neon-yellow:hover,
+body.comic-mode .btn-outline-light:hover,
+body.comic-mode .btn:hover {
+  box-shadow: 8px 8px 0px #000 !important;
+  transform: translate(-2px, -2px) !important;
+  color: #000 !important; /* Gunakan hitam agar selalu terlihat jelas bergaya komik kaku */
+}
+
+/* Specific Hover Background Colors */
+body.comic-mode .btn-neon:hover,
+body.comic-mode .btn-primary:hover,
+body.comic-mode .btn-info:hover {
+  background-color: #3b82f6 !important; /* Blue */
+}
+
+body.comic-mode .btn-neon-green:hover,
+body.comic-mode .btn-success:hover {
+  background-color: #22c55e !important; /* Green */
+}
+
+body.comic-mode .btn-neon-red:hover,
+body.comic-mode .btn-danger:hover {
+  background-color: #ef4444 !important; /* Red */
+}
+
+body.comic-mode .btn-neon-yellow:hover,
+body.comic-mode .btn-warning:hover {
+  background-color: #facc15 !important; /* Yellow */
+  color: #000 !important; /* Yellow butuh text hitam */
+}
+
+body.comic-mode .btn-neon-purple:hover {
+  background-color: #a855f7 !important; /* Purple */
+}
+
+body.comic-mode .btn-outline-light:hover,
+body.comic-mode .btn-secondary:hover {
+  background-color: #facc15 !important; /* Yellow for theme toggle */
+  color: #000 !important;
+}
+
+body.comic-mode .btn:hover {
+  /* Default fallback */
+  background-color: #e0e0e0 !important;
+  color: #000 !important;
+}
+
+/* COMIC MODE SPINNER (Animasi Logout/Loading) */
+body.comic-mode .animate-spin {
+  border: 4px solid #000 !important;
+  border-top-color: transparent !important;
+  border-radius: 0px !important; /* Ubah bulat jadi kotak kaku */
+  box-shadow: 6px 6px 0px #000 !important;
+  background-color: transparent !important;
+}
+
+/* COMIC MODE ALERTS */
+body.comic-mode .alert {
+  background-color: #ffffff !important;
+  border: 4px solid #000 !important;
+  box-shadow: 8px 8px 0px #000 !important;
+  border-radius: 0px !important;
+  color: #000 !important;
+  backdrop-filter: none !important;
+}
+body.comic-mode .alert * {
+  color: #000 !important;
+  text-shadow: none !important;
+}
+
+/* COMIC MODE JADWAL CONSOLE (Jam Tersewa) */
+body.comic-mode .booked-item {
+  background-color: #ffcccc !important; /* Merah kaku */
+  border: 4px solid #000 !important;
+  box-shadow: 6px 6px 0px #000 !important;
+  border-radius: 0px !important;
+  color: #000 !important;
+}
+body.comic-mode .booked-item i {
+  color: #d32f2f !important;
+}
+body.comic-mode .booked-item span {
+  color: #000 !important;
+}
+
+body.comic-mode .available-item {
+  background-color: #ccffcc !important; /* Hijau kaku */
+  border: 4px solid #000 !important;
+  box-shadow: 6px 6px 0px #000 !important;
+  border-radius: 0px !important;
+  color: #000 !important;
+}
+body.comic-mode .available-item * {
+  color: #000 !important;
+}
+
+/* DROPDOWN MENU */
+body.comic-mode .dropdown-menu {
+  background: #fff !important;
+  border: 3px solid #000 !important;
+  box-shadow: 8px 8px 0px #000 !important;
+}
+body.comic-mode .dropdown-item {
+  color: #000 !important;
+  font-weight: bold;
+}
+body.comic-mode .dropdown-item:hover {
+  background: #f0f0f0 !important;
+  color: #000 !important;
+  border-left: 4px solid #000;
+}
+body.comic-mode .dropdown-header {
+  color: #000 !important;
+  font-weight: 900 !important;
+  text-transform: uppercase;
+  border-bottom: 2px solid #000;
+}
+
+/* SWEETALERT & NOTIFICATIONS */
+body.comic-mode .swal2-popup {
+  background: #fff !important;
+  border: 4px solid #000 !important;
+  box-shadow: 12px 12px 0px #000 !important;
+  border-radius: 0 !important;
+}
+body.comic-mode .swal2-title,
+body.comic-mode .swal2-html-container,
+body.comic-mode .swal2-icon {
+  color: #000 !important;
+}
+body.comic-mode .alert {
+  background: #fff !important;
+  border: 3px solid #000 !important;
+  box-shadow: 8px 8px 0px #000 !important;
+  color: #000 !important;
+  font-weight: bold;
+}
+
+/* TAILWIND OVERRIDES FOR STATUS SEWA */
+body.comic-mode .bg-gray-900,
+body.comic-mode .bg-gray-800,
+body.comic-mode .bg-gray-700,
+body.comic-mode .bg-black {
+  background-color: #fff !important;
+}
+body.comic-mode .border-gray-700,
+body.comic-mode .border-white\/5 {
+  border-color: #000 !important;
+}
+body.comic-mode .text-blue-400,
+body.comic-mode .text-gray-400,
+body.comic-mode .text-gray-500,
+body.comic-mode .text-gray-300,
+body.comic-mode .text-gray-200,
+body.comic-mode .text-green-400,
+body.comic-mode .text-yellow-400,
+body.comic-mode .text-orange-400 {
+  color: #000 !important;
+}
+body.comic-mode .bg-green-500\/20,
+body.comic-mode .bg-yellow-500\/20,
+body.comic-mode .bg-orange-500\/20,
+body.comic-mode .bg-gray-500\/20,
+body.comic-mode .bg-blue-900\/30 {
+  background-color: #fff !important;
+  border: 3px solid #000 !important;
+  box-shadow: 4px 4px 0px #000 !important;
+}
+
+/* FIX STATUS SEWA WATERFALL ICON */
+body.comic-mode .icon-waterfall-item {
+  color: #fff !important;
+  -webkit-text-stroke: 4px #000 !important;
+  text-shadow: 8px 8px 0px #000 !important;
+}
+
+/* BORDER BUNGKUS CABANG GROUP (STATUS SEWA) */
+body.comic-mode .cabang-group {
+  border: 4px solid #000 !important;
+  box-shadow: 12px 12px 0px #000 !important;
+  background: #ffffff !important;
+  border-radius: 8px !important;
+  padding: 20px !important;
+  margin-bottom: 30px !important;
+}
+
+body.comic-mode .cabang-group h2 {
+  color: #000 !important;
+  border-bottom: 4px solid #000 !important;
+  padding-bottom: 10px !important;
+  margin-bottom: 20px !important;
+}
+
+body.comic-mode .cabang-group .text-purple-400 {
+  color: #000 !important;
+}
+
+body.comic-mode .cabang-group .glass-card {
+  box-shadow: 4px 4px 0px #000 !important;
+  border: 3px dashed #000 !important;
+  background: #f8f9fa !important;
+}
+
+/* =========================================================
+   COMIC MODE TOGGLE (GLOBAL OVERRIDES)
+   ========================================================= */
+body.comic-mode {
+  background-color: #fff !important;
+  background-image: none !important; /* Force remove gradient backgrounds */
+  background: #fff !important; /* Force override any shorthand inline background */
+  color: #000 !important;
+  font-family: 'Comic Sans MS', 'Chalkboard SE', 'Comic Neue', sans-serif !important;
+}
+
+/* TAILWIND OVERRIDES FOR STATUS SEWA */
+body.comic-mode .bg-blue-600 {
+  background-color: #fff !important;
+  border: 3px solid #000 !important;
+  box-shadow: 6px 6px 0px #000 !important;
+  color: #000 !important;
+  font-weight: 900 !important;
+}
+body.comic-mode .bg-blue-600:hover {
+  background-color: #22c55e !important; /* User requested green for 'cek status' */
+  color: #000 !important;
+  transform: translate(-2px, -2px) !important;
+  box-shadow: 8px 8px 0px #000 !important;
+}
+body.comic-mode .bg-gray-800 {
+  background-color: #fff !important;
+  border: 3px solid #000 !important;
+  box-shadow: 6px 6px 0px #000 !important;
+  color: #000 !important;
+  font-weight: 900 !important;
+}
+body.comic-mode .bg-gray-800:hover {
+  background-color: #ef4444 !important; /* Red */
+  color: #000 !important;
+  transform: translate(-2px, -2px) !important;
+  box-shadow: 8px 8px 0px #000 !important;
+}
+
+/* LOGIN & AUTH PAGES FIXES */
+body.comic-mode .glass,
+body.comic-mode .glass-gold {
+  background: #ffffff !important;
+  border: 4px solid #000 !important;
+  box-shadow: 12px 12px 0px #000 !important;
+}
+body.comic-mode .glow-input,
+body.comic-mode .input-neon {
+  background: #ffffff !important;
+  border: 3px solid #000 !important;
+  color: #000 !important;
+  box-shadow: 6px 6px 0px #000 !important;
+}
+body.comic-mode .glow-input:focus,
+body.comic-mode .input-neon:focus {
+  border-color: #000 !important;
+  box-shadow: 8px 8px 0px #000 !important;
+}
+body.comic-mode .glow-btn,
+body.comic-mode .btn-gold {
+  background: #ffffff !important;
+  border: 3px solid #000 !important;
+  color: #000 !important;
+  font-weight: 900 !important;
+  box-shadow: 6px 6px 0px #000 !important;
+  text-shadow: none !important;
+}
+body.comic-mode .glow-btn:hover,
+body.comic-mode .btn-gold:hover {
+  background: #facc15 !important; /* Yellow for super admin btn */
+  color: #000 !important;
+  box-shadow: 8px 8px 0px #000 !important;
+  transform: translate(-2px, -2px) !important;
+}
+/* Ensure red/blue/yellow text on auth pages turn black in comic mode */
+body.comic-mode .text-red-500,
+body.comic-mode .text-red-400,
+body.comic-mode .text-red-300,
+body.comic-mode .text-blue-500,
+body.comic-mode .text-purple-500,
+body.comic-mode .text-yellow-500,
+body.comic-mode .text-yellow-600 {
+  color: #000 !important;
+}
+body.comic-mode .bg-red-900\/30,
+body.comic-mode .bg-red-500\/20,
+body.comic-mode .border-red-500\/50,
+body.comic-mode .border-red-500,
+body.comic-mode .bg-yellow-900\/30,
+body.comic-mode .border-yellow-500\/50 {
+  background-color: #fff !important;
+  border-color: #000 !important;
+  border: 3px solid #000 !important;
+  box-shadow: 4px 4px 0px #000 !important;
+}
