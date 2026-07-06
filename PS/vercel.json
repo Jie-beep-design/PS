@@ -8,6 +8,6 @@
     }
   },
   "routes": [
-    { "src": "/(.*)", "dest": "/index.php" }
+    { "src": "/(.*)", "dest": "Api/index.php" }
   ]
 ]
